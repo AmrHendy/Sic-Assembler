@@ -1,0 +1,39 @@
+001000    Prbn08   START   0X'1000'  
+001000             LDA     ZERO
+001003             STA     INDEX
+001006    LOOP     LDA     ZERO
+001009             LDX     INDEX
+00100c             STA     ALPHA,X
+00100f             LDA     INDEX
+001012             ADD     THREE
+001015             STA     INDEX
+001018             COMP    K300
+00101b             JLT     LOOP          
+00101e    ALPHA    RESW    100
+00114a    K300     WORD    300
+00114d    ZERO     WORD    0
+001150    THREE    WORD    3
+001153    INDEX    RESW    1
+001156             END     Prbn08
+
+
+
+s y m b o l  t a b l e 
++--------+--------+
+| name   | value  | 
++--------+--------+
+| ZERO   | 00114d | 
++--------+--------+
+| LOOP   | 001006 | 
++--------+--------+
+| ALPHA  | 00101e | 
++--------+--------+
+| K300   | 00114a | 
++--------+--------+
+| INDEX  | 001153 | 
++--------+--------+
+| Prbn08 | 001000 | 
++--------+--------+
+| THREE  | 001150 | 
++--------+--------+
+

@@ -98,9 +98,12 @@ public class Pass2Handler {
              *****************************/
             if (objectCode.equals("")) {
                 if (notTextRecordEnder(this.intermediateFileContent.get(ind - 1).get(2))) {
-               
-                }
-                else if(len != 0) {
+
+                } else if (this.intermediateFileContent.get(ind - 1).get(2).equalsIgnoreCase("ORG")
+                        && this.intermediateFileContent.get(ind - 1).get(0).equalsIgnoreCase(this.intermediateFileContent.get(ind)
+                                .get(0))) {
+
+                } else if (len != 0) {
                     obLines.add(new TextRecord(StartingAddress, len, content.toString()));
                     content = new StringBuilder();
                     len = 0;
@@ -219,8 +222,8 @@ public class Pass2Handler {
     }
 
     private boolean notTextRecordEnder(String symbol) {
-        return symbol.equalsIgnoreCase("EQU") || symbol.equalsIgnoreCase("ORG") || symbol.equalsIgnoreCase("LTORG")
-                || symbol.equalsIgnoreCase("END");
+        /** Remove ORG **/
+        return symbol.equalsIgnoreCase("EQU") || symbol.equalsIgnoreCase("LTORG") || symbol.equalsIgnoreCase("END");
     }
 
 }

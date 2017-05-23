@@ -1,0 +1,9 @@
+001000    Prbn01   START   0X'1000'             
+==> illegal Operand not existing in symtab
+001000             LDA     BETA                 
+001003             MUL     GAMMA                20100f
+001006             STA     ALPHA                0c1009
+001009    ALPHA    RESW    1                    
+00100c    BETAS    WORD    25                   000019
+00100f    GAMMA    WORD    4                    000004
+001012             END     Prbn01               

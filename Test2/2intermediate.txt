@@ -12,26 +12,26 @@
 00101b             ltorg
 00101b             *       =-3
 000006    Ahmed1   EQU     12-6
-001023    Ahmed2   EQU     *+5
+001020    Ahmed2   EQU     =-3+5
 00000c    Ahmed    EQU     12
 00100c    Mohamed  EQU     ENDFIL
 00100e    Mohamed1 EQU     ENDFIL+2
 00101e             JSUB    WRREC
 001021             LDL     =-65
 001024             ORG
-001024             ORG     1000+Ahmed
-0003f4             RSUB
-0003f7    EOF      BYTE    C'EOF'
-0003fa    THREE    WORD    3
-0003fd    ZERO     WORD    0
-000400    RETADR   RESW    1
-000403    LENGTH   RESW    1
-000406    BUFFER   RESW    4096
-003406    RDREC    LDX     ZERO
-003409             LDA     ZERO
-00340c             RD      INPUT
-00340f             COMP    ZERO
-003412             ORG
+001024             ORG     Ahmed1+12
+000012             RSUB
+000015    EOF      BYTE    C'EOF'
+000018    THREE    WORD    3
+00001b    ZERO     WORD    0
+00001e    RETADR   RESW    1
+000021    LENGTH   RESW    1
+000024    BUFFER   RESW    4096
+003024    RDREC    LDX     ZERO
+003027             LDA     ZERO
+00302a             RD      INPUT
+00302d             COMP    ZERO
+003030             ORG
 001024             ORG
 001024             STCH    BUFFER,X
 001027             TIX     =3
@@ -64,7 +64,7 @@ s y m b o l  t a b l e
 +----------+--------+
 | Ahmed    | 00000c | 
 +----------+--------+
-| ZERO     | 0003fd | 
+| ZERO     | 00001b | 
 +----------+--------+
 | INPUT    | 001030 | 
 +----------+--------+
@@ -74,15 +74,15 @@ s y m b o l  t a b l e
 +----------+--------+
 | ENDFIL   | 00100c | 
 +----------+--------+
-| LENGTH   | 000403 | 
+| LENGTH   | 000021 | 
 +----------+--------+
 | COPY     | 001000 | 
 +----------+--------+
 | FIRST    | 001003 | 
 +----------+--------+
-| RETADR   | 000400 | 
+| RETADR   | 00001e | 
 +----------+--------+
-| BUFFER   | 000406 | 
+| BUFFER   | 000024 | 
 +----------+--------+
 | Mohamed1 | 00100e | 
 +----------+--------+
@@ -92,17 +92,17 @@ s y m b o l  t a b l e
 +----------+--------+
 | WLOOP    | 001037 | 
 +----------+--------+
-| Ahmed2   | 001023 | 
+| Ahmed2   | 001020 | 
 +----------+--------+
 | Ahmed1   | 000006 | 
 +----------+--------+
-| EOF      | 0003f7 | 
+| EOF      | 000015 | 
 +----------+--------+
-| RDREC    | 003406 | 
+| RDREC    | 003024 | 
 +----------+--------+
 | EXIT     | 00102a | 
 +----------+--------+
-| THREE    | 0003fa | 
+| THREE    | 000018 | 
 +----------+--------+
 
 

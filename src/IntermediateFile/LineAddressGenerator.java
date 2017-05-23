@@ -9,7 +9,6 @@ import data.Data;
 import elements.EquateHandler;
 import elements.ORGHandler;
 import exception.StatementException;
-import javafx.scene.media.EqualizerBand;
 import statement.IStatement;
 import statement.Operation;
 import tools.Checker;

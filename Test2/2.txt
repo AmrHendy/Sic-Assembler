@@ -11,14 +11,14 @@ ENDFIL   LDA     EOF
          STA     =-3
          ltorg
 Ahmed1   EQU     12-6
-Ahmed2   EQU     *+5
+Ahmed2   EQU     =-3+5
 Ahmed    EQU     12
 Mohamed  EQU     ENDFIL
 Mohamed1 EQU     ENDFIL+2
          JSUB    WRREC
          LDL     =-65
          ORG
-         ORG     1000+Ahmed
+         ORG     Ahmed1+12
          RSUB
 EOF      BYTE    C'EOF'
 THREE    WORD    3

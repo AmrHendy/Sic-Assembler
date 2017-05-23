@@ -1,0 +1,35 @@
+001000    Prbn06   START   0X'1000'
+001000             LDX     ZERO
+001003             LDCH    BLANK
+001006    LOOP     STCH    STR,X
+001009             TIX     K20
+00100c             JLT     LOOP
+00100f    STR      BYTE    c'0123456789'
+. ****illegel expression with BYTE expecting C'' or X''
+00100f    STR2     BYTE    c'0123456789666565656565'
+          . OUT OF RANGE
+. ****Invalid Instruction Format
+00100f    BLANK    BYTE    c' '
+. ****illegel operand with RES
+00100f    BUFFER   RESB    90050
+00100f    K20      WORD    20
+001012    ZERO     WORD    0
+001015             END     Prbn06
+
+
+
+s y m b o l  t a b l e 
++--------+--------+
+| name   | value  | 
++--------+--------+
+| STR    | 00100f | 
++--------+--------+
+| ZERO   | 001012 | 
++--------+--------+
+| LOOP   | 001006 | 
++--------+--------+
+| K20    | 00100f | 
++--------+--------+
+| Prbn06 | 001000 | 
++--------+--------+
+
