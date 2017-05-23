@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import data.Data;
+import elements.Literal;
 import exception.StatementException;
 import obline.imp.EndRecord;
 import obline.imp.HeaderRecord;
@@ -148,7 +149,7 @@ public class Pass2Handler {
             indOfColon = instructionContent.get(3).length();
             indexing = false;
         }
-        operandAddress = this.symbolTable.get(instructionContent.get(3).substring(0, indOfColon).trim());
+        operandAddress = symbolTable.get(instructionContent.get(3).substring(0, indOfColon).trim());
         // check max length of operand
         if (Checker.convertFromHexaToDeca(operandAddress) > Math.pow(2, 15)) {
             error = true;
@@ -161,6 +162,9 @@ public class Pass2Handler {
                 operandAddress = address.substring(3, address.length() - 1);
             } else if (Checker.checkStar(instructionContent.get(3).trim())) {
                 operandAddress = instructionContent.get(0).trim();
+            }else if(literalTable.get(instructionContent.get(3).substring(0, indOfColon).trim())){
+            	Literal litObject=literalTable.get(instructionContent.get(3).substring(0, indOfColon).trim());
+            	operandAddress=litObject.getAddress();
             } else {
                 error = true;
                 this.listingFile.add("==> illegal Operand not existing in symtab");
@@ -188,6 +192,9 @@ public class Pass2Handler {
             }
         } else if (directiveContent.get(2).equalsIgnoreCase("WORD")) {
             result = Checker.getHexaFromDecimal(directiveContent.get(3));
+        }else if(directiveContent.get(2).equalsIgnoreCase("*")){
+        	//
+        	result=literalTable.get(directiveContent.get(1)).getValue();
         }
         return result;
     }
