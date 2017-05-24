@@ -136,6 +136,7 @@ public class IntermediateFileHandler {
 				currentValues.add(line.substring(27, Math.min(44, line.length())).trim());
 				loadedFileContent.add((ArrayList<String>) currentValues.clone());
 			}
+			bufferedReaader.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

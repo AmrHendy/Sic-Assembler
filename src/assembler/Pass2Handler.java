@@ -127,7 +127,8 @@ public class Pass2Handler {
             /************************
              * End of Object Code Generation
              *****************************/
-            this.listingFile.add(line + "    " + objectCode);
+            while(objectCode.length()<6)objectCode+=" ";
+            this.listingFile.add(line + "    " + objectCode.substring(0,6));
             while (objectCode.length() > 6) {
                 objectCode = objectCode.substring(6);
                 line = "";
@@ -147,7 +148,14 @@ public class Pass2Handler {
          * Adding Start and End Record
          *****************************/
         int first = Integer.parseInt(intermediateFileContent.get(0).get(0), 16);
-        int last = Integer.parseInt(intermediateFileContent.get(intermediateFileContent.size() - 1).get(0), 16);
+        int last;
+        if(intermediateFileContent.get(intermediateFile.size()-1).get(2).equalsIgnoreCase("END")){
+        	last = Checker.convertFromHexaToDeca(intermediateFileContent.get(intermediateFile.size()-1).get(0));
+        }
+        else{
+        	last = Checker.convertFromHexaToDeca(intermediateFileContent.get(intermediateFile.size()-1).get(0));
+        	last += Data.literalTable.get(intermediateFileContent.get(intermediateFile.size()-1).get(3)).getLength();
+        }
         obLines.add(0, new HeaderRecord(intermediateFileContent.get(0).get(1), intermediateFileContent.get(0).get(0),
                 last - first));
         obLines.add(new EndRecord(endOperand));
