@@ -1,9 +1,0 @@
-001000    Prbn01   START   0X'1000'             
-001000    STAB     RESB    1100                 
-00144c             ORG     STAB                 
-001000    ALPHA    RESB    6                    
-001006    BETA     RESB    3                    
-001009    GAMMA    RESB    1                    
-00100a             ORG     STAB+1100            
-00144c             LDA     ALPHA                001000
-00144f             END     Prbn01               
