@@ -1,1 +1,0 @@
-G:\Eclipce projects\Assembler\Test\input.txt
