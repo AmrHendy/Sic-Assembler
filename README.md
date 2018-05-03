@@ -6,7 +6,7 @@ and output listing file , intermediate file and object file.
 ## Authors
 * **Amr Hendy** [AmrHendy](https://github.com/AmrHendy)
 * **Muhammed Ibrahim** [MuhammedKhamis](https://github.com/MuhammedKhamis)
-* **Mohamed Shapan** [mohamed-shaapan](https://github.com/mohamed-shaapan
+* **Mohamed Shapan** [mohamed-shaapan](https://github.com/mohamed-shaapan)
 
 ## License
 
